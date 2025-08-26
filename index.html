@@ -42,18 +42,17 @@
       gap: 1rem;
     }
 
-    nav button {
-      background: none;
-      border: none;
+    nav a {
       color: #ddd;
       font-size: 1rem;
       cursor: pointer;
       padding: 0.5rem 0.8rem;
-      transition: 0.3s;
       border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    nav button:hover {
+    nav a:hover {
       background: #4db8ff22;
       color: #4db8ff;
     }
@@ -85,8 +84,12 @@
     /* Content Sections */
     main {
       max-width: 1000px;
-      margin: 4rem auto;
+      margin: auto;
       padding: 2rem;
+    }
+
+    section {
+      padding: 5rem 2rem;
     }
 
     .card {
@@ -128,6 +131,11 @@
       color: #4db8ff;
       text-decoration: none;
     }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
@@ -136,16 +144,16 @@
   <header>
     <h1>Life Platform</h1>
     <nav>
-      <button onclick="showContent('home')">Home</button>
-      <button onclick="showContent('about')">About</button>
-      <button onclick="showContent('vision')">Vision</button>
-      <button onclick="showContent('mission')">Mission</button>
-      <button onclick="showContent('contact')">Contact</button>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#vision">Vision</a>
+      <a href="#mission">Mission</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="hero" id="hero">
+  <section class="hero" id="home">
     <div>
       <h2>Welcome to Life Platform</h2>
       <p>Your trusted partner in building a healthier lifestyle through innovation, guidance, and community support.</p>
@@ -153,49 +161,47 @@
   </section>
 
   <!-- Main Content -->
-  <main id="mainContent">
-    <div class="card" id="contentCard">
-      <h2 id="contentTitle">Welcome to Life Platform</h2>
-      <p id="contentText">Congratulations! You have taken the right decision to begin your healthy lifestyle journey.</p>
-    </div>
+  <main>
+    <section id="about">
+      <div class="card">
+        <h2>Who are we?</h2>
+        <p>We are a group of enthusiasts, who believe that health always comes first. With endless choices around us, we guide you to take the right health decisions and live a healthier, better Life.</p>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="card">
+        <h2>Our Vision</h2>
+        <p>To empower individuals worldwide to take control of their health and well-being by making informed, positive choices. We aim to inspire a global community to embrace wellness as a way of life.</p>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="card">
+        <h2>Our Mission</h2>
+        <p>We are committed to being your dedicated partner on your wellness journey. Through expert advice, personalized recommendations, and motivation, we help you build lasting habits for a fulfilling life.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card">
+        <h2>Get in Touch</h2>
+        <p>We’d love to hear from you!</p>
+        <p>Email: <a href="mailto:Life.App23@gmail.com" style="color:#4db8ff;">Life.App23@gmail.com</a></p>
+        <p>Address: 53 Fayrouz Street, District 1, Sheikh Zayed City, Egypt.</p>
+      </div>
+    </section>
   </main>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2024 Life Platform. All Rights Reserved.</p>
-  <p>Powered by 
-    <a href="https://element-develops.com" target="_blank" style="color:#4db8ff; text-decoration:none;">
-      Element
-    </a>.
-  </p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Life Platform. All Rights Reserved.</p>
+    <p>Powered by 
+      <a href="https://element-develops.com" target="_blank">
+        Element
+      </a>.
+    </p>
+  </footer>
 
-  <script>
-    // Dynamic content loader
-    function showContent(section) {
-      const title = document.getElementById('contentTitle');
-      const text = document.getElementById('contentText');
-
-      if (section === 'home') {
-        title.textContent = "Welcome to Life Platform";
-        text.innerHTML = "Congratulations! You have taken the right decision to begin your healthy lifestyle journey. We are here to support & push you forward to reach your goal.";
-      } else if (section === 'about') {
-        title.textContent = "Who are we?";
-        text.innerHTML = "We are a group of enthusiasts, who believe that health always comes first. With endless choices around us, we guide you to take the right health decisions and live a healthier, better Life.";
-      } else if (section === 'vision') {
-        title.textContent = "Our Vision";
-        text.innerHTML = "To empower individuals worldwide to take control of their health and well-being by making informed, positive choices. We aim to inspire a global community to embrace wellness as a way of life.";
-      } else if (section === 'mission') {
-        title.textContent = "Our Mission";
-        text.innerHTML = "We are committed to being your dedicated partner on your wellness journey. Through expert advice, personalized recommendations, and motivation, we help you build lasting habits for a fulfilling life.";
-      } else if (section === 'contact') {
-        title.textContent = "Get in Touch";
-        text.innerHTML = "We’d love to hear from you! <br><br>Email: <a href='mailto:Life.App23@gmail.com'>Life.App23@gmail.com</a><br><br>Address: 53 Fayrouz Street, District 1, Sheikh Zayed City, Egypt.";
-      }
-
-      // Scroll to main content
-      document.getElementById('mainContent').scrollIntoView({behavior: 'smooth'});
-    }
-  </script>
 </body>
 </html>
