@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Platform</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      color: #4db8ff;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #ddd;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 0.8rem;
+      transition: 0.3s;
+      border-radius: 6px;
+    }
+
+    nav button:hover {
+      background: #4db8ff22;
+      color: #4db8ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #111, #1a1a1a, #0d3b66);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #4db8ff;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      color: #bbb;
+    }
+
+    /* Content Sections */
+    main {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #4db8ff;
+    }
+
+    .card h2 {
+      color: #4db8ff;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #666;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      border-top: 1px solid #222;
+    }
+
+    footer a {
+      color: #4db8ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <h1>Life Platform</h1>
+    <nav>
+      <button onclick="showContent('home')">Home</button>
+      <button onclick="showContent('about')">About</button>
+      <button onclick="showContent('vision')">Vision</button>
+      <button onclick="showContent('mission')">Mission</button>
+      <button onclick="showContent('contact')">Contact</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div>
+      <h2>Welcome to Life Platform</h2>
+      <p>Your trusted partner in building a healthier lifestyle through innovation, guidance, and community support.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <div class="card" id="contentCard">
+      <h2 id="contentTitle">Welcome to Life Platform</h2>
+      <p id="contentText">Congratulations! You have taken the right decision to begin your healthy lifestyle journey.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Life Platform. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Dynamic content loader
+    function showContent(section) {
+      const title = document.getElementById('contentTitle');
+      const text = document.getElementById('contentText');
+
+      if (section === 'home') {
+        title.textContent = "Welcome to Life Platform";
+        text.innerHTML = "Congratulations! You have taken the right decision to begin your healthy lifestyle journey. We are here to support & push you forward to reach your goal.";
+      } else if (section === 'about') {
+        title.textContent = "Who are we?";
+        text.innerHTML = "We are a group of enthusiasts, who believe that health always comes first. With endless choices around us, we guide you to take the right health decisions and live a healthier, better Life.";
+      } else if (section === 'vision') {
+        title.textContent = "Our Vision";
+        text.innerHTML = "To empower individuals worldwide to take control of their health and well-being by making informed, positive choices. We aim to inspire a global community to embrace wellness as a way of life.";
+      } else if (section === 'mission') {
+        title.textContent = "Our Mission";
+        text.innerHTML = "We are committed to being your dedicated partner on your wellness journey. Through expert advice, personalized recommendations, and motivation, we help you build lasting habits for a fulfilling life.";
+      } else if (section === 'contact') {
+        title.textContent = "Get in Touch";
+        text.innerHTML = "We’d love to hear from you! <br><br>Email: <a href='mailto:Life.App23@gmail.com'>Life.App23@gmail.com</a><br><br>Address: 53 Fayrouz Street, District 1, Sheikh Zayed City, Egypt.";
+      }
+
+      // Scroll to main content
+      document.getElementById('mainContent').scrollIntoView({behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
