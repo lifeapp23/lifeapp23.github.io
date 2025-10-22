@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="life.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Platform</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* Mobile-first responsive design */
+    
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.95);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+      gap: 1rem;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .header-top img {
+      height: 60px;
+      width: auto;
+    }
+
+    .header-top p {
+      font-size: 0.8rem;
+      color: #bbb;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    nav a {
+      color: #ddd;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #4db8ff22;
+      color: #4db8ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #111, #1a1a1a, #0d3b66);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 140px; /* Account for fixed header */
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4db8ff;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 100%;
+      margin: auto;
+      color: #bbb;
+      line-height: 1.5;
+    }
+
+    /* Content Sections */
+    main {
+      max-width: 100%;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    section {
+      padding: 3rem 1rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #4db8ff;
+    }
+
+    .card h2 {
+      color: #4db8ff;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      margin: 0.8rem 0;
+      padding: 0.8rem;
+      background: #111;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #666;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      border-top: 1px solid #222;
+    }
+
+    footer a {
+      color: #4db8ff;
+      text-decoration: none;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Tablet styles */
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        gap: 0;
+      }
+
+      .header-top {
+        width: auto;
+        justify-content: flex-start;
+      }
+
+      .header-top img {
+        height: 70px;
+      }
+
+      .header-top p {
+        font-size: 0.9rem;
+        max-width: none;
+      }
+
+      nav {
+        width: auto;
+        justify-content: flex-end;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+      }
+
+      .hero {
+        margin-top: 80px;
+        padding: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        max-width: 600px;
+      }
+
+      main {
+        max-width: 800px;
+        padding: 2rem;
+      }
+
+      section {
+        padding: 4rem 2rem;
+      }
+
+      .card {
+        padding: 2rem;
+      }
+
+      .card h2 {
+        font-size: 1.6rem;
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+
+      .card ul li {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Desktop styles */
+    @media (min-width: 1024px) {
+      .hero {
+        margin-top: 80px;
+        padding: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 700px;
+      }
+
+      main {
+        max-width: 1000px;
+        padding: 2rem;
+      }
+
+      section {
+        padding: 5rem 2rem;
+      }
+
+      .card {
+        padding: 2rem;
+      }
+
+      .card h2 {
+        font-size: 1.8rem;
+      }
+
+      .card p {
+        font-size: 1.05rem;
+      }
+
+      .card ul li {
+        font-size: 1rem;
+      }
+    }
+
+    /* Large desktop styles */
+    @media (min-width: 1200px) {
+      .hero h2 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+      }
+    }
+
+    /* Touch-friendly improvements for mobile */
+    @media (max-width: 767px) {
+      nav a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card ul li {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+
+      .hero {
+        padding: 1rem;
+      }
+    }
+
+    /* Landscape orientation adjustments for mobile */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .hero {
+        margin-top: 120px;
+        min-height: 80vh;
+      }
+
+      header {
+        padding: 0.8rem 1rem;
+      }
+
+      .header-top img {
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="header-top">
+      <img src="logo.png" alt="Life Platform Logo">
+      <p>Where Trainers & Trainees Connect 💪✨</p>
+    </div>
+    <nav>
+      <a href="#home">Account Deletion</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <h2>Stay Positive, Stay Motivated!</h2>
+      <p>We're sorry to know that you want to leave.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <main>
+    <section id="about">
+      <div class="card">
+        <h2>Account deletion</h2>
+<p>We’re sorry to see you go!
+<p>Your fitness journey matters to us, and we’d love to help you reach your goals with the support of our platform and community.
+<p>If there’s anything we can do to improve your experience or assist you, please reach out to us at the email below — we’re always here to help.
+
+<p>If you still wish to proceed with deleting your account, kindly send your registered email address to our contact details below to confirm your request.<p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="card">
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="card">
+        <h2>Get in Touch</h2>
+        <p>We’d love to hear from you!</p>
+        <p>Email: <a href="mailto:support@element-develops.com" style="color:#4db8ff;">support@element-develops.com</a></p>
+        <p>Address: 53 Fayrouz Street, District 1, Sheikh Zayed City, Egypt.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Life Platform. All Rights Reserved.</p>
+    <p>Powered by <a href="https://element-develops.com" target="_blank">Element</a>.</p>
+  </footer>
+
+</body>
+</html>
